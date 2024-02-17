@@ -1,6 +1,20 @@
+import re
 from typing import List
 
+
+def _chek_str_input(str_to_compress: str) -> None:
+    if not isinstance(str_to_compress, str):
+        raise TypeError("The input to compress should be a string.")
+
+    re_pattern = re.compile(r'[\d\s]')
+
+    if re_pattern.search(str_to_compress):
+        raise ValueError("The input to compress should not contain white spaces or numbers.")
+
+
 def compress_str(str_to_compress: str) -> str:
+    _chek_str_input(str_to_compress)
+
     previous_char: str = None
     str_count: int = 0
     compressed_chars: List[str] = []
@@ -20,5 +34,5 @@ def compress_str(str_to_compress: str) -> str:
     compressed_str = str_to_compress
     if len(compressed_chars) <  len(str_to_compress):
         compressed_str =  ''.join(compressed_chars)
-        
+
     return compressed_str
