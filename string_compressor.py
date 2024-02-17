@@ -33,8 +33,7 @@ def compress_str(str_to_compress: str, lower_compression: bool = False) -> str:
     if previous_char is not None:
         compressed_chars.append(previous_char + str(str_count))
 
-    compressed_str = str_to_compress
     if len(compressed_chars) <  len(str_to_compress):
-        compressed_str =  ''.join(compressed_chars)
+        return ''.join(compressed_chars)
 
-    return compressed_str
+    return str_to_compress
