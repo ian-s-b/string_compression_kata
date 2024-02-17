@@ -3,9 +3,6 @@ from typing import List
 
 
 class StringCompressor:
-    def __init__(self):
-        pass
-
     @staticmethod
     def _check_str_input(str_to_compress: str) -> None:
         if not isinstance(str_to_compress, str):
