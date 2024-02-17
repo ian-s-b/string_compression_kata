@@ -14,5 +14,5 @@ To do:
 ## Suggested improvements
 1. Optimize the execution speed using "join" instead of concatenating the string
 2. Discards compression when the length of the compressed version is greater than that of the original version, e.g.: "ab" => "a1b1".
-3. Handle incompatible input string cases, e.g: "a1b3"
+3. Handle incompatible input string cases, e.g: "a1b3", None
 4. Add case sensitive options
