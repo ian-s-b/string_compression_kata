@@ -28,6 +28,9 @@ class DefaultCompression(CompressionStrategy):
         :return: The compressed string.
         :rtype: str
         """
+        if str_to_compress == "abceee":
+            a=1
+
         previous_char: Optional[str] = None
         str_count: int = 0
         compressed_chars: List[str] = []
@@ -44,7 +47,7 @@ class DefaultCompression(CompressionStrategy):
         if previous_char is not None:
             compressed_chars.append(previous_char + str(str_count))
 
-        if len(compressed_chars) < len(str_to_compress):
+        if len(compressed_chars)*2 < len(str_to_compress):
             return ''.join(compressed_chars)
 
         return str_to_compress

@@ -14,8 +14,8 @@ def compressor():
 
 @pytest.mark.parametrize(
     ("str_to_compress", "expected_result"),
-    [("aabcccaaa", "a2b1c3a3"), ("abc", "abc"), ("aaa", "a3"), ("kzzzi", "k1z3i1"), ("", ""), ("a", "a"),
-     ("AAbcccAAA", "A2b1c3A3")])
+    [("aabcccaaa", "a2b1c3a3"), ("abc", "abc"), ("aaa", "a3"), ("kzzziiiiiiiiiii", "k1z3i11"), ("", ""), ("a", "a"),
+     ("AAbcccAAA", "A2b1c3A3"), ("abceee", "abceee")])
 def test_valid_compression(compressor: StringCompressor, str_to_compress: str, expected_result: str) -> None:
     """
     Test used to check if the compression works as expected.
