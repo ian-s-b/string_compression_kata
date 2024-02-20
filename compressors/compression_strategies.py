@@ -28,12 +28,12 @@ class DefaultCompression(CompressionStrategy):
         :return: The compressed string.
         :rtype: str
         """
-        previous_char: Optional[str] = None
+        previous_char: str = ""
         str_count: int = 0
         compressed_chars: List[str] = []
 
         for char in str_to_compress:
-            if previous_char is not None and char != previous_char:
+            if previous_char and char != previous_char:
                 compressed_chars.append(previous_char + str(str_count))
                 str_count = 1
             else:
@@ -41,10 +41,9 @@ class DefaultCompression(CompressionStrategy):
 
             previous_char = char
 
-        if previous_char is not None:
+        if previous_char:
             compressed_chars.append(previous_char + str(str_count))
 
-        if len(compressed_chars)*2 < len(str_to_compress):
-            return ''.join(compressed_chars)
+        compressed_str = ''.join(compressed_chars)
 
-        return str_to_compress
+        return compressed_str if len(compressed_str) <= len(str_to_compress) else str_to_compress
